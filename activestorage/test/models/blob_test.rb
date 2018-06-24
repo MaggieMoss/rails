@@ -16,7 +16,7 @@ class ActiveStorage::BlobTest < ActiveSupport::TestCase
     blob_1 = create_blob filename: "funky.jpg"
     blob_2 = create_blob filename: "town.jpg"
 
-    user = UserWithHasOneAttachedDependentFalse.create!
+    user = UserWithHasOneAttachedDependentFalse.create!(name: "DHH")
     user.avatar.attach blob_1
 
     assert_equal [blob_2], ActiveStorage::Blob.unattached
